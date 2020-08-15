@@ -28,3 +28,28 @@ describe('POST /register', () => {
     expect(res.type).toBe('application/json');
   });
 });
+
+describe('POST /login', () => {
+  let res = {};
+
+  beforeAll(async () => {
+    await db('users').truncate();
+
+    await request(server)
+      .post('/api/auth/register')
+      .send({ username: 'user', password: 'password' });
+
+    res = await request(server).post('/api/auth/login').send({
+      username: 'user',
+      password: 'password'
+    });
+  });
+
+  it('should return 200', () => {
+    expect(res.status).toBe(200);
+  });
+
+  it('should return a JSON object', () => {
+    expect(res.type).toBe('application/json');
+  });
+});
