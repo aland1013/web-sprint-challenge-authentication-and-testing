@@ -26,11 +26,21 @@ Be prepared to demonstrate your understanding of this week's concepts by answeri
 
 1. Differences between using _sessions_ or _JSON Web Tokens_ for authentication.
 
+Session based authentication stores user state on the server. The server creates and stores session data when the user logs in and then stores the session id in a cookie on the user’s browser. The session id is sent on requests to the server, and the server compares it with the session data that is stored on the server before processing the request.
+
+Token based authentication stores user state on the client. The server encrypts user data and saves it to a JWT with a secret and sends the JWT back to the client.The JWT is stored by the client and sent as a header on every request to the server. The server validates the JWT before processing the request and sending a response to the client.
+
 2. What does `bcrypt` do to help us store passwords in a secure manner.
+
+Bcrypt hashes passwords by combining the password with a salt and hashing the resulting string using a cryptographic algorithm. Then, when a user later submits their password to log in to an app, the salt used to store the user’s password is added to that password and hashed to see if it matches the hash stored on the server. By doing this, the user’s actual password is never stored on the server, so it stays secure.
 
 3. How are unit tests different from integration and end-to-end testing.
 
+Unit tests are used to verify that individual, isolated parts of the app work as expected. Integration tests verify that several units work together in harmony. End to end testing involves the utilization of a helper robot that behaves like a user to click around the app to verify that it functions correctly.
+
 4. How _Test Driven Development_ changes the way we write applications and tests.
+
+With test driven development, you write tests first, then write code that passes the tests. If your tests fail, you know you’ve written an effective test. Test drive development encourages simple designs and inspires confidence. The mnemonic red, green, refactor is often used to describe test driven development. First, you write the test. Before you have written the code, the test fails (RED). Then, you write the code to pass the test (GREEN). Finally, you refactor the code to optimize performance, improve readability, etc. Then you repeat the Red/Green/Refactor cycle with a new test to advance the functionality of the app.
 
 You are expected to be able to answer questions in these areas. Your responses contribute to your Sprint Challenge grade.
 
