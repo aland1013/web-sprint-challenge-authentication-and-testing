@@ -2,7 +2,7 @@ const request = require('supertest');
 const server = require('../api/server');
 const db = require('../database/dbConfig');
 
-describe('jokes-router.js', () => {
+describe('jokes-router', () => {
   describe('GET /', () => {
     let token = '';
     let res = {};
